@@ -1,4 +1,4 @@
-# README
+# Proof of work Blockchain in Rust
 
 ## Block structure:
 
@@ -61,3 +61,38 @@ This project has 4 (to simplify/ for educational purposes). Which are:
 // blockchain.blocks[3].payload = "Payload fail".to_owned();
 // blockchain.blocks[3].prev_block_hash[18] = 8;
 ```
+
+## Transactions
+
+Do remember, a blockchain is not a spreadsheet.
+
+We have to protect against:
+
+* Overspending (where did the money come from?)
+* Double-spending (is the money available?)
+* Impersonation (who owns the money and who is sending it? -> asymmetric cryptography: mathematically verify the person)
+* ... there are more. See [Bitcoin's](https://en.bitcoin.it/wiki/Protocol_rules#.22tx.22_messages)
+
+### Structure of a Transaction
+
+There are two components: inputs and outputs. _And inputs are outputs_.....
+
+Transactions only contain two important pieces of information:
+
+* Set of inputs (which are unused outputs from previous transactions)
+* Set of outputs (_new_ outputs that can be used in future transactions)
+
+With this information we can calculate...
+
+* ... the value of the transaction: Σinputs
+* ... the value of the fee: Σinputs - Σoutputs
+
+#### Fee
+
+A fee should be present as an incentive for the miner to add the transaction to their block.
+
+### Coinbase transaction
+
+A coinbase transaction is the first transaction in a block. It is a unique type of bitcoin transaction that can be
+created by a miner. The miners use it to collect the block reward for their work and any other transaction fees
+collected by the miner are also sent in this transaction.
