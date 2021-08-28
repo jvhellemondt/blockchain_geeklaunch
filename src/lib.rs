@@ -2,7 +2,12 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
 pub use crate::block::Block;
+pub use crate::blockchain::Blockchain;
 pub use crate::hashable::Hashable;
+
+mod block;
+mod hashable;
+mod blockchain;
 
 type BlockHash = Vec<u8>;
 
@@ -76,6 +81,3 @@ pub fn u128_bytes(u: &u128) -> [u8; 16] {
         (u >> 8 * 0xf) as u8,
     ]
 }
-
-mod block;
-mod hashable;
