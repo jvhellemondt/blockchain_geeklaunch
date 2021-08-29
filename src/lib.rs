@@ -4,12 +4,15 @@ use std::time::{SystemTime, UNIX_EPOCH};
 pub use crate::block::Block;
 pub use crate::blockchain::Blockchain;
 pub use crate::hashable::Hashable;
+pub use crate::transaction::Transaction;
 
 mod block;
 mod hashable;
 mod blockchain;
+mod transaction;
 
-type BlockHash = Vec<u8>;
+type Hash = Vec<u8>;
+type Address = String;
 
 pub fn now() -> u128 {
     let duration = SystemTime::now()
