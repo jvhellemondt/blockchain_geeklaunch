@@ -2,6 +2,7 @@ use std::collections::HashSet;
 
 use super::*;
 
+#[derive(Debug)]
 pub enum BlockValidationError {
     MismatchedIndex,
     InvalidHash,
@@ -19,6 +20,13 @@ pub struct Blockchain {
 }
 
 impl Blockchain {
+    pub fn new() -> Self {
+        Blockchain {
+            blocks: vec![],
+            unspent_outputs: HashSet::new(),
+        }
+    }
+
     pub fn update_with_block(&mut self, block: Block) -> Result<(), BlockValidationError> {
         let i = self.blocks.len();
 
@@ -47,8 +55,8 @@ impl Blockchain {
                 return Err(BlockValidationError::InvalidCoinbaseTransaction);
             }
 
-            let mut block_spent: HashSet<Hash> = Hashset::new();
-            let mut block_created: HashSet<Hash> = Hashset::new();
+            let mut block_spent: HashSet<Hash> = HashSet::new();
+            let mut block_created: HashSet<Hash> = HashSet::new();
             let mut total_fee = 0;
 
             for transaction in transactions {

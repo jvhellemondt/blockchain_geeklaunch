@@ -20,7 +20,7 @@ impl Hashable for Output {
 
 pub struct Transaction {
     pub inputs: Vec<Output>,
-    pub outputs: Vec<Outputs>,
+    pub outputs: Vec<Output>,
 }
 
 impl Transaction {

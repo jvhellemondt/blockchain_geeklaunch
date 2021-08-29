@@ -9,7 +9,7 @@ pub use crate::transaction::Transaction;
 mod block;
 mod hashable;
 mod blockchain;
-mod transaction;
+pub mod transaction;
 
 type Hash = Vec<u8>;
 type Address = String;
