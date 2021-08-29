@@ -1,5 +1,7 @@
 # Proof of work Blockchain in Rust
 
+[Youtube series GeekLaunch](https://www.youtube.com/playlist?list=PLwnSaD6BDfXL0RiKT_5nOIdxTxZWpPtAv)
+
 ## Block structure:
 
 ```rust
@@ -96,3 +98,16 @@ A fee should be present as an incentive for the miner to add the transaction to 
 A coinbase transaction is the first transaction in a block. It is a unique type of bitcoin transaction that can be
 created by a miner. The miners use it to collect the block reward for their work and any other transaction fees
 collected by the miner are also sent in this transaction.
+
+## Rust specific
+
+### Errors
+
+Result<T,E> is a recoverable error panic! is a program crash error
+
+### Null
+
+Null is not included in Rust. Rust implemented Option<T>. Option comes in two flavors:
+
+* Option::Some(T)
+* Option::None // like null
