@@ -2,6 +2,14 @@
 
 [Youtube series GeekLaunch](https://www.youtube.com/playlist?list=PLwnSaD6BDfXL0RiKT_5nOIdxTxZWpPtAv)
 
+This project is not a secure blockchain (nor working one). Some things which are still missing:
+
+* The difficulty stored in a block is not validated
+* The value of the coinbase transaction is not validated
+* "Coin ownership" is neither enforced nor existent
+* Identical outputs from different transactions are indistinguishable
+* ... more...
+
 ## Block structure:
 
 ```rust
